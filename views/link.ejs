@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="/stylesheet/styles.css" text="css/text" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Link</title>
+    <script>
+        const copyLink = () => {
+            let copyText = document.getElementById("link");
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(copyText);
+            selection.removeAllRanges();
+            selection.addRange(range)
+            document.execCommand('copy');
+        }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Link</h1>
+      <div>
+        <a target="_blank" href="//<%= url %>/links/<%= link.id %>"
+          ><button id="link"><%= url %>/links/<%= link.id %></button></a
+        >
+        <button onclick="copyLink()">Copy Link</button>
+      </div>
+    </div>
+  </body>
+</html>
